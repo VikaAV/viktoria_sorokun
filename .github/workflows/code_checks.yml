@@ -1,0 +1,36 @@
+name: Code Checks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  code_checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Clang-Format
+        run: sudo apt-get install -y clang-format
+
+      - name: Run Clang-Format   
+        run: clang-format -style=file -i $(find . -name '*.c' -or -name '*.h')
+
+      - name: Setup Cpplint
+        run: sudo apt-get install -y python3-pip && pip3 install cpplint
+
+      - name: Run Cpplint
+        run: cpplint $(find . -name '*.c' -or -name '*.h')
+
+      - name: Check for Changes
+        run: |
+          git diff --exit-code || { echo "Code formatting issues found. Please run clang-format locally and push changes again."; exit 1; }
+
+          cpplint_exit_code=$(cpplint $(find . -name '*.c' -or -name '*.h') 2>&1 | tee /dev/tty | wc -l)
+          [ $cpplint_exit_code -eq 0 ] || { echo "Code style convention issues found. Please fix them before pushing."; exit 1; }
+
+          echo "Code convention checks passed. Proceeding with the push."
+
