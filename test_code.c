@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdint.h>  // Include for fixed-width integer types
+#include <stdint.h>  
 
 /*
  * Copyright (c) [2023] [Y]
@@ -43,11 +43,13 @@ int main() {
     if (number < 0) {
         // Print an error message
         printf("Please enter a non-negative integer.\n");
-        return 1;  // Exit with an error code
+        // Exit with an error code
+        return 1;  
     }
 
     // Calculate and display the factorial
     printf("Factorial of %d = %llu\n", number, factorial(number));
-
-    return 0;  // Exit successfully
+    
+    // Exit successfully
+    return 0;  
 }
