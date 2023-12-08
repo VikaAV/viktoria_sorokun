@@ -43,7 +43,7 @@ int main() {
     if (number < 0) {
         // Print an error message
         printf("Please enter a non-negative integer.\n");
-        return 1;    // Exit with an error code
+        return 1;  // Exit with an error code
     }
 
     // Calculate and display the factorial
