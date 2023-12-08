@@ -1,5 +1,5 @@
+#include <stdint.h>
 #include <stdio.h>
-#include <stdint.h>  
 
 /*
  * Copyright (c) [2023] [Y]
@@ -25,31 +25,31 @@
 
 // Function to calculate the factorial of a number
 uint64_t factorial(int n) {
-    if (n == 0 || n == 1) {
-        return 1;
-    } else {
-        return n * factorial(n - 1);
-    }
+  if (n == 0 || n == 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
 }
 
 int main() {
-    int number;
+  int number;
 
-    // Get input from the user
-    printf("Enter a non-negative integer: ");
-    scanf("%d", &number);
+  // Get input from the user
+  printf("Enter a non-negative integer: ");
+  scanf("%d", &number);
 
-    // Check if the number is non-negative
-    if (number < 0) {
-        // Print an error message
-        printf("Please enter a non-negative integer.\n");
-        // Exit with an error code
-        return 1;  
-    }
+  // Check if the number is non-negative
+  if (number < 0) {
+    // Print an error message
+    printf("Please enter a non-negative integer.\n");
+    // Exit with an error code
+    return 1;
+  }
 
-    // Calculate and display the factorial
-    printf("Factorial of %d = %llu\n", number, factorial(number));
-    
-    // Exit successfully
-    return 0;  
+  // Calculate and display the factorial
+  printf("Factorial of %d = %llu\n", number, factorial(number));
+
+  // Exit successfully
+  return 0;
 }
