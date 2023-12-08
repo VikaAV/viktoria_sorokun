@@ -24,6 +24,9 @@ jobs:
 
       - name: Run Cpplint
         run: cpplint $(find . -name '*.c' -or -name '*.h') > cpplint_output.txt || true
+      
+      - name: Debug - List Files in Working Directory
+        run: ls -al
 
       - name: Check for Changes
         run: |
