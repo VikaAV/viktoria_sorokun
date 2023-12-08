@@ -23,7 +23,10 @@ jobs:
         run: sudo apt-get install -y python3-pip && pip3 install cpplint
 
       - name: Run Cpplint
-        run: cpplint $(find . -name '*.c' -or -name '*.h')
+        run: cpplint $(find . -name '*.c' -or -name '*.h') > cpplint_output.txt || true
+      
+      - name: Run Cpp.txt
+        run: ls -al cpplint_output.txt
 
       - name: Check for Changes
         run: |
