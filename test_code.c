@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>  // Include for fixed-width integer types
 
 /*
  * Copyright (c) [2023] [Y]
@@ -23,7 +24,7 @@
  */
 
 // Function to calculate the factorial of a number
-unsigned long long factorial(int n) {
+uint64_t factorial(int n) {
     if (n == 0 || n == 1) {
         return 1;
     } else {
@@ -40,12 +41,13 @@ int main() {
 
     // Check if the number is non-negative
     if (number < 0) {
+        // Print an error message
         printf("Please enter a non-negative integer.\n");
-        return 1; // Exit with an error code
+        return 1;  // Exit with an error code
     }
 
     // Calculate and display the factorial
     printf("Factorial of %d = %llu\n", number, factorial(number));
 
-    return 0; // Exit successfully
+    return 0;  // Exit successfully
 }
