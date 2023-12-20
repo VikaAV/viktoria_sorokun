@@ -36,7 +36,7 @@ int main() {
   int number;
 
   // Get input from the user
-  printf("Enter a non-negative integer: ");
+  printf("Enter a non-negative integer: "); 
   scanf("%d", &number);
 
   // Check if the number is non-negative
